@@ -3,7 +3,7 @@
 This program scraps and download every public repo present out there!
 It doesn't uses auth/token. Useful when you just need to download files of a folder, and not the whole repo.
 
-THERE IS NO SOFTWARE PRESENT LIKE THIS OUT THERE! SO THANK ME OR STAR THIS REPO!
+
 
 #### DEMOS:
 
