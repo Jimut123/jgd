@@ -1,20 +1,34 @@
 """
 JGD: Jimut's GIT Downloader is a Copyrighted scraper program to download/ clone a git repo/ folder.
+
+Author: Jimut Bahan Pal (jimutbahanpal@yahoo.com)
+python jgd.py <any-git-folder-url>
+python jgd.py <any-git-repo-url>
+
+It is pretty niggerlicious way to clone a folder/repo, since you need to reclone this again, if they update it.
+Thank me and remember me, since this doesn't use AUTH/TOKEN! and downloads files of long and big repo present out there.
 """
 
-import os
-import wget
-import sqlite3
-import json
-from pprint import pprint
+import urllib.request, urllib.parse, urllib.error
 from selenium import webdriver
 from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
+from pprint import pprint
 from pathlib import Path
 from tqdm import tqdm
+import argparse
+import sqlite3
 import time
-import urllib.request, urllib.parse, urllib.error
-from bs4 import BeautifulSoup
+import json
+import wget
 import ssl
+import os
+
+parser = argparse.ArgumentParser()
+parser.add_argument('url', type=str,
+                   help='URL is mandatory !')
+args = parser.parse_args()
+print(args.url)
 
 conn = sqlite3.connect('git.sqlite')
 cur = conn.cursor()
@@ -28,7 +42,7 @@ CREATE TABLE IF NOT EXISTS data (
 );
 ''')
 
-url = "https://github.com/zalandoresearch/flair/tree/master/flair"
+url = str(args.url)
 while True:
     ol_url = url
     profile = webdriver.FirefoxProfile()
@@ -53,11 +67,13 @@ while True:
                 cur.execute('''INSERT OR IGNORE INTO data (url, type, parent, traversed)
 					VALUES ( ?, ?, ?, ? )''', (href_,"file",url,1 ) )
         except:
-            pass
+            print()
     driver.close()
 
-    urls = cur.execute('''SELECT * FROM data WHERE traversed = ?''',(0,))
-
+    urls = cur.execute('''SELECT * FROM data WHERE traversed = ?''',(0,)).fetchall()
+    if not urls:
+        print("NO URL PRESENT")
+        break
     for k in urls:
         url = k[0]
         print("URL ==",url)
@@ -65,7 +81,10 @@ while True:
         conn.commit()
         break
     print("NOT TRAVERSED : ")
-    urls = cur.execute('''SELECT * FROM data WHERE traversed = ?''',(0,))
+    urls = cur.execute('''SELECT * FROM data WHERE traversed = ?''',(0,)).fetchall()
+    if not urls:
+        print("NO URL PRESENT")
+        break
     if ol_url == url:
         print("EXITING")
         break
@@ -120,6 +139,8 @@ for item in data:
         os.chdir(go_dir)
         wget.download(link_)
         os.chdir(cur_wd)
-
+os.remove("git.sqlite")
+os.remove("geckodriver.log")
+print("CLEANING!")
 
 
