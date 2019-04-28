@@ -57,22 +57,20 @@ for items in get_file_names:
             if not os.path.exists(item_):
                 os.makedirs(item_)
             FOLDER_TREE = {"name":item_,"visited":False,"url":href_,"subfolder":""}
-
         if split_1 == "blob":
-            # To download file basically
             "https://github.com/ines/spacy-course/blob/master/theme.sass"
             "https://raw.githubusercontent.com/ines/spacy-course/master/theme.sass"
             s = href_.split('/')
             get_url = s[0]+"//"+"raw.githubusercontent.com/"+s[3]+"/"+s[4]+"/"+s[6]+"/"+s[7]
-            if not os.path.exists(get_url.split('/')[-1:]):
-                wget.download(get_url)
+            #if not str(os.path.exists(get_url.split('/')[-1:]):
+            wget.download(get_url)
             
 
     except Exception as e:
         print(e)
     #print(items.text)
     #print(items.get_attribute('href'))
-    print(json.dumps(FOLDER_TREE, indent=2, sort_keys=True))
+print(json.dumps(FOLDER_TREE, indent=2, sort_keys=True))
 
 #print(json.dumps(jim_json, indent=2, sort_keys=True))
 
