@@ -1,6 +1,5 @@
 """
 JGD: Jimut's GIT Downloader is a Copyrighted scraper program to download/ clone a git repo/ folder.
-
 Author: Jimut Bahan Pal (jimutbahanpal@yahoo.com)
 python jgd.py <any-git-folder-url>
 python jgd.py <any-git-repo-url>
