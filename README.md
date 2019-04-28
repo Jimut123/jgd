@@ -19,6 +19,11 @@ THERE IS NO SOFTWARE PRESENT LIKE THIS OUT THERE! SO THANK ME OR STAR THIS REPO!
 python jgd.py <any-git-folder-url>
 python jgd.py <any-git-repo-url>
 ```
+#### Install the requirements:
+```
+sudo pip install -r requirements.txt
+```
+
 
 #### Author:
 * [Jimut Bahan Pal](https://jimut123.github.io)
