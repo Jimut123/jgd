@@ -4,10 +4,27 @@ This program scraps and download every public repo present out there!
 It doesn't uses auth/token. Useful when you just need to download files of a folder, and not the whole repo.
 
 
-
 #### DEMOS:
 
 <a href="https://www.youtube.com/watch?v=jq9o54D2ySo" alt="YT video" target="_blank"><img src="img/jgd.png" alt="jgd youtube image"></a>
+
+#### Installation
+
+```
+$ git clone https://github.com/Jimut123/jgd
+$ sudo python setup.py install
+$ jgd -h
+usage: jgd [-h] url
+
+positional arguments:
+  url         URL is mandatory! Please provide URL to folder/repo of Public
+              repository.
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+```
+
 
 
 #### Pros:

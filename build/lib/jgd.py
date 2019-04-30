@@ -26,7 +26,7 @@ import os
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('url', type=str,
-                    help='URL is mandatory !')
+                    help='URL is mandatory!\n Please provide URL to folder/repo of Public repository.')
     args = parser.parse_args()
     print(args.url)
 
