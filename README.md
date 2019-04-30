@@ -12,6 +12,7 @@ It doesn't uses auth/token. Useful when you just need to download files of a fol
 
 ```
 $ git clone https://github.com/Jimut123/jgd
+$ cd jgd
 $ sudo python setup.py install
 $ jgd -h
 usage: jgd [-h] url
