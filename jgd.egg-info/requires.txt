@@ -1,0 +1,4 @@
+selenium
+wget
+pip
+bs4

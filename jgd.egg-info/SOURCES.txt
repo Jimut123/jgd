@@ -1,0 +1,9 @@
+README.md
+jgd.py
+setup.py
+jgd.egg-info/PKG-INFO
+jgd.egg-info/SOURCES.txt
+jgd.egg-info/dependency_links.txt
+jgd.egg-info/entry_points.txt
+jgd.egg-info/requires.txt
+jgd.egg-info/top_level.txt
